@@ -1,4 +1,4 @@
-import os, { cpus } from "node:os";
+import os from "node:os";
 import cluster from "node:cluster";
 
 const runPrimaryProcess = () => {
@@ -18,7 +18,7 @@ const runPrimaryProcess = () => {
 }
 
 const runWorkerProcess = async () => {
-    await import("./server.js")
+    await import("./server.js");
 }
 
 cluster.isPrimary ? runPrimaryProcess() : runWorkerProcess();

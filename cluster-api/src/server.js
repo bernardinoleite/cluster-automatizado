@@ -4,11 +4,11 @@ const processId = process.pid
 
 const server = createServer((_, response) => {
     for (let i = 0; i < 1e7; i++);
-    response.end("Handled by pid: " + processId)
+    response.end("Handled by pid: " + processId);
 })
 
-
-server.listen(3000)
+server
+    .listen(3000)
     .once("listening", () => {
         console.log("server started in process ", processId);
     })
